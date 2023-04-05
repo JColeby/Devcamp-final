@@ -14,7 +14,13 @@ body{
     background-image: linear-gradient(#41454F , #23252B);
     color:#A2A2A2;
     font-family: "Montserrat", 'Telefon', Sans-Serif;
+
+    min-height: 100vh;
 }
+
+
+
+/*Nav*/
 
 #head{
     grid-area: head;
@@ -24,15 +30,66 @@ body{
     width: calc(100vw - 20px);
     padding: 10px;
     background-color: #000000;
+    position: fixed;
 }
-
-/*Nav*/
 
 #head > .logo img{
     width:70vw;
 }
 
 #head > .menu img{
+    width:15vw;
+}
+
+
+/*dropdown menu*/
+
+#head input{
+    display: block;
+    width:15vw;
+    height: 15vw;
+    position: absolute;
+    z-index: 6;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: calc(85vw - 20px);
+}
+
+#head .dropdown-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform-origin: 0% 0%;
+   transform: translate(0, -100%);
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+   -webkit-font-smoothing: antialiased;
+
+   width:100vw;
+   height:100vh;
+   background-image: linear-gradient(#41454F , #23252B);
+   z-index: 3;
+}
+
+#head input:checked ~ .dropdown-menu{
+    transform: none;
+}
+
+.menu-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.create-search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px;
+}
+
+.create-search img{
     width:15vw;
 }
 
@@ -90,6 +147,7 @@ body{
     grid-area: s3;
     width: calc(100% - 20px);
     padding: 10px;
+    margin-bottom: 50px;
 }
 
 #projects p{
@@ -118,6 +176,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .footer-box{
